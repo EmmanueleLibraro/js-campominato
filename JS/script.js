@@ -23,10 +23,22 @@ console.log("Lista Bombe" , lista);
 
 //CONDIZIONE PER VERIFICARE SE SI PRENDE LA BOMBA
 while( (numeriConsentiti.length < possibilita) && (! lista.includes(utente)  )){
-
+    utente = parseInt(prompt("Inserisci un numero da 1 a ", + numeroMax + "\nTentatovi riusciti:" + numeriConsentiti.length + "di" + possibilita))
 }
 
+while(isNaN(utente) || utente < 1 || utente > numeroMax){
+    utente = parseInt(prompt ("Valore non valido, inserisci un numero da 1 a ") + numeroMax)
+}
+console.log(utente);
 
+//NUMERO LISTA BOMBA
+if(lista.includes(utente) ){
+    alert("Hai perso :(" + numeriConsentiti.length + " volte prima di trovare la bomba");
+}else if(numeriConsentiti.includes(utente)){
+    alert("Numero già inserito, inseriscine un altro " )
+}else if(! numeriConsentiti.includes(utente)){
+    numeriConsentiti.push(utente);
+}
 
 
 
